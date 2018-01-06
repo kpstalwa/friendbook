@@ -1,4 +1,4 @@
-#FriendBook: A social networking site
+# FriendBook: A social networking site
 
 This is social networking site putting together of all that I have learned so far in web development with Rails. 
 
