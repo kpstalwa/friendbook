@@ -39,6 +39,14 @@
     <%= f.password_field :current_password, autocomplete: "off" , class: 'form-control'%>
   </div>
 </div>
+<div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target="_blank">Change</a>
+    </div>
+<br>
+<br>
+<br>
+<br>
 <div class="row">
   <div class="col-md-4">
     <%= f.submit "Update", class: 'btn btn-primary' %>
