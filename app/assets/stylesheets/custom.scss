@@ -1,30 +1,138 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+$light-gray: #777;
+$gray-medium-light: #eaeaea;
 
+//Typography 
+
+h1 {
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    font-weight: normal;
+    color: $light-gray;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+}
+
+#logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding-top: 9px;
+    font-weight: bold;
+
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+.navigationbar{
+    .dropdown-menu {
+        li a {
+         color: black;
+         &:hover{
+            font-weight: bold;
+            background-color: white;
+        }
+    }
+}
+
+    li a {
+        color: #fff;
+        &:hover{
+            font-weight: bold;
+            background-color: #337ab7;
+        }
+    }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+}
+}
+//Errors!!
 .alert-error {
     background-color: #f2dede;
     border-color: #eed3d7;
     color: #b94a48;
     text-align: left;
- }
+}
 
 .alert-alert {
     background-color: #f2dede;
     border-color: #eed3d7;
     color: #b94a48;
     text-align: left;
- }
+}
 
 .alert-success {
     background-color: #dff0d8;
     border-color: #d6e9c6;
     color: #468847;
     text-align: left;
- }
+}
 
 .alert-notice {
     background-color: #dff0d8;
     border-color: #d6e9c6;
     color: #468847;
     text-align: left;
- }
+}
+
+body {
+    padding-top: 60px;
+}
+
+section {
+    overflow: auto;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+//Footer
+
+footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid $gray-medium-light;
+    color: $light-gray;
+    a{
+        color: $gray;
+        &:hover {
+            color: $gray-darker;
+        }
+    }
+    strong {
+        float: left;
+    }
+    nav ul {
+        float: right;
+        list-style: none;
+        li {
+            float: left;
+            margin-left: 15px;
+            margin-right: 10px;
+        }
+    }
+}

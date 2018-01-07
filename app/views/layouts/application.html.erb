@@ -6,22 +6,18 @@
 
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
-	<div id="user_nav">
-		<% if user_signed_in? %>
-		Signed in as <%= current_user.email %>. Not you?
-		<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-		<% else %>
-		<%= link_to "Sign up", new_user_registration_path %> or
-		<%= link_to "Sign in", new_user_session_path %>
-		<% end %>
-	</div>
-
+	<%= render 'layouts/shim' %>
+	<%= render 'layouts/nav' %>
 	<div class="container">
 		<%= render 'layouts/messages' %>
 		<%= yield %>
 	</div>
+	<%= render 'layouts/footer' %>
 </body>
+
 </html>
