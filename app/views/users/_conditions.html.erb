@@ -1,0 +1,16 @@
+ <% if current_user != @user %>
+ <% if current_user.friends.include?(@user) %>
+ <p>Friends <i class="fa fa-check" aria-hidden="true"></i>
+ </p>
+ <br>
+ <%= link_to "Delete friend", friend_path(@user), class: "btn btn-danger", method: :delete %>
+ <% elsif current_user.pending_friends.include?(@user) %>
+ <p> Friend Request Sent <i class="fa fa-spinner" aria-hidden="true"></i> </p>
+
+ <% elsif @user.pending_friends.include?(current_user) %>
+ <% request = FriendRequest.where({ friend: current_user, user_id: @user.id}) %>
+ <%= link_to "Accept friend request", friend_request_path(request.first.id), method: :put, class: "btn btn-primary" %>
+ <% else %>
+ <%= link_to "Add friend", friend_requests_path(friend_id: @user.id), class: "btn btn-primary", method: :post%>
+ <% end %>
+ <%end%>

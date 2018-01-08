@@ -1,0 +1,8 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="#">
+    <strong id="followers" class="stat">
+      <%= pluralize(@user.friends.count, "Friend") %>
+    </strong>
+  </a>
+</div>
