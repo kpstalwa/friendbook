@@ -26,4 +26,12 @@ class User < ApplicationRecord
       false
     end
   end
+
+  def friends?(user)
+    if self.friends.find_by(id: user.id)
+      true
+    else 
+      false
+    end
+  end
 end
