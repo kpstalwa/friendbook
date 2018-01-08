@@ -1,0 +1,21 @@
+<h1>Friend Requests</h1>
+<h3>Friend Requests</h3>
+<ul class="users">
+	<% @incoming.each do |request| %>
+	<li>
+		<% user = User.find_by(id: request.user_id) %>
+		<%= gravatar_for user, size: 50%>
+		<%= link_to user.name, user %>
+	</li>
+<%end%>
+</ul>
+<h3>Pending Requests</h3>
+<ul class="users">
+	<% @outgoing.each do |request| %>
+	<li>
+		<% user = User.find_by(id: request.friend_id) %>
+		<%= gravatar_for user, size: 50%>
+		<%= link_to user.name, user %>
+	</li>
+<%end%>
+</ul>

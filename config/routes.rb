@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friend_requests
   get 'static_pages/home' => 'static_pages#home'
   root 'static_pages#home'
   devise_for :users, :path => 'u'

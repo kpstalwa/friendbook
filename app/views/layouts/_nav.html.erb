@@ -7,7 +7,7 @@
 				<li><%= link_to "Home", static_pages_home_path %></li>
 				<% if user_signed_in? %>
 				<li><%= link_to "Find Friends", users_path %></li>
-				<li><%= link_to "Notifications", '#' %></li>
+				<li><%= link_to "Notifications", friend_requests_path %></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						Account <b class="caret"></b>

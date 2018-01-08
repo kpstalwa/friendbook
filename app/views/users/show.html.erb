@@ -5,6 +5,22 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <% if current_user != @user %>
+      <% if current_user.friends.include?(@user) %>
+      <p>Friends</p>
+      <br>
+      <%= link_to "Delete Friend", '#', class: "btn btn-danger"%>
+      <% elsif current_user.pending_friends.include?(@user) %>
+      <p> Friend Request Sent </p>
+      
+      <% elsif @user.pending_friends.include?(current_user) %>
+      <% request = FriendRequest.where({ friend: current_user, user_id: @user.id}) %>
+      <%= link_to "Accept friend request", friend_request_path(request.first.id), method: :put, class: "btn btn-primary" %>
+
+      <% else %>
+      <%= link_to "Add friend", friend_requests_path(friend_id: @user.id), class: "btn btn-primary", method: :post%>
+      <% end %>
+      <%end%>
     </section>
   </aside>
 </div>
