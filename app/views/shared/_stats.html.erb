@@ -1,8 +1,6 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <a href="#">
     <strong id="followers" class="stat">
-      <%= pluralize(@user.friends.count, "Friend") %>
+      <%= link_to pluralize(@user.friends.count, "Friend"), static_pages_index_path %>
     </strong>
-  </a>
 </div>

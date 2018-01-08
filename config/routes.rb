@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'posts/destroy'
 
+  get 'static_pages/index' => 'static_pages#index'
   resources :friend_requests
   get 'static_pages/home' => 'static_pages#home'
   root 'static_pages#home'
