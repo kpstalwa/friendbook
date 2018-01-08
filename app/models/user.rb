@@ -8,12 +8,14 @@ class User < ApplicationRecord
    #has_many :accept_requests, class_name: "FriendRequest", foreign_key: "friend_id", dependent: destroy
    #has_many :accept_friends, through: :accept_friends, 
 
-
-
+   has_many :posts
    has_many :friendships, dependent: :destroy
    has_many :friends, through: :friendships
 
    def remove_friend(friend)
     friends.destroy(friend)
+  end
+  def feed
+    Post.where("user_id IN (?) OR user_id = ?", friend_ids, id)
   end
 end
