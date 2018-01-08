@@ -1,5 +1,5 @@
-<h1>Friend Requests</h1>
-<h3>Friend Requests</h3>
+<h1>Notifications</h1>
+<h4>Incoming Requests:</h4>
 <ul class="users">
 	<% @incoming.each do |request| %>
 	<li>
@@ -7,9 +7,10 @@
 		<%= gravatar_for user, size: 50%>
 		<%= link_to user.name, user %>
 	</li>
-<%end%>
+	<%end%>
 </ul>
-<h3>Pending Requests</h3>
+<hr>
+<h4>Pending Requests</h4>
 <ul class="users">
 	<% @outgoing.each do |request| %>
 	<li>
@@ -17,5 +18,23 @@
 		<%= gravatar_for user, size: 50%>
 		<%= link_to user.name, user %>
 	</li>
-<%end%>
+	<%end%>
+</ul>
+<hr>
+<h4>Likes</h4>
+<ul class="users">
+	<% @posts = current_user.posts %>
+	<% @posts.each do |post| %>
+	<% @likes = post.likes %>
+	<% @likes.each do |like| %>
+	<% if like.user_id != current_user.id %>
+	<% user = User.find_by(id: like.user_id) %>
+	<li>
+		<%= gravatar_for user, size: 50%>
+		<%= link_to "#{user.name} liked your post", user %>
+	</li>
+	<% end %>
+
+	<% end %>
+	<% end %>
 </ul>
