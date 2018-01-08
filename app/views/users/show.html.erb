@@ -9,7 +9,7 @@
       <% if current_user.friends.include?(@user) %>
       <p>Friends</p>
       <br>
-      <%= link_to "Delete Friend", '#', class: "btn btn-danger"%>
+      <%= link_to "Delete friend", friend_path(@user), class: "btn btn-danger", method: :delete %>
       <% elsif current_user.pending_friends.include?(@user) %>
       <p> Friend Request Sent </p>
       
