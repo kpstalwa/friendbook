@@ -5,6 +5,13 @@
 		    <%= image_tag post.picture.url if post.picture? %>
 
 	</span>
+	<span class = "like">
+		<% if current_user.liked?(post) %>
+		<%= link_to "", like_path(post.id), class: "fa fa-thumbs-up", method: :delete %>
+		<% else %>
+		<%= link_to "", likes_path(post_id: post.id), class: "fa fa-thumbs-o-up", method: :post %>
+		<% end %>
+	</span>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(post.created_at) %> ago.
 		<% if current_user == post.user  %>

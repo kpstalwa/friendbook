@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+
+  get 'likes/destroy'
+
   get 'posts/create'
 
   get 'posts/destroy'
@@ -10,5 +14,6 @@ Rails.application.routes.draw do
   resources :users, :only => [:show, :index]
   resources :friends, :only => [:index, :destroy]
   resources :posts, :only => [:create, :destroy]
+  resources :likes, :only => [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

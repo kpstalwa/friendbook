@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   default_scope -> {order(created_at: :desc)}
   validates :user_id, presence: true
  validates :content, presence: true
+ has_many :likes
  mount_uploader :picture, PictureUploader
    validate  :picture_size
 
