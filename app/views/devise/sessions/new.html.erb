@@ -26,6 +26,14 @@
   </div>
 </div>
 <% end %>
+<br><br>
+<div class = "row">
+  <div class="col-md-4">
+    <div id = "fblink">
+   <%= link_to "Sign in", user_facebook_omniauth_authorize_path,
+ class: "fa fa-facebook-square" %></div>
+  </div>
+</div>
 
 
 <%= render "devise/shared/links" %>
