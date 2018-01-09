@@ -1,6 +1,8 @@
 # FriendBook: A social networking site
 
-This is social networking site putting together of all that I have learned so far in web development with Rails. 
+This is social networking site cloning many of the features of Facebook like mutual friends, posts, newsfeed, comments and likes. External gems like OmniAuth and Devise allow internal and external authorization. Bootstrap, and SCSS were used for styling purposes. Deployment is on Heroku. 
+
+[*To view it live*](https://friendbookme.herokuapp.com/)
 
 ## Getting started
 
@@ -19,3 +21,9 @@ $ rails db:migrate
 ```
 $ rails server
 ```
+
+##Screenshots
+
+
+
+
