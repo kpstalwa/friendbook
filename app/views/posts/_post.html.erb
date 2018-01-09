@@ -2,7 +2,7 @@
 	<%= link_to gravatar_for(post.user, size: 50), post.user %>
 	<span class="user"><%= link_to post.user.name, post.user %></span>
 	<span class="content"><%= post.content %>
-		    <%= image_tag post.picture.url if post.picture? %>
+		<%= image_tag post.picture.url if post.picture? %>
 
 	</span>
 	<span class = "like">
@@ -11,6 +11,39 @@
 		<% else %>
 		<%= link_to "", likes_path(post_id: post.id), class: "fa fa-thumbs-o-up", method: :post %>
 		<% end %>
+	</span>
+	<span class = "comments">
+		<% @comments = post.comments %>
+		<span class = "iterations">
+		<% @comments.each do |comment| %>
+		<br>
+		<li class = comment>
+			<%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+			<span class="user"><%= link_to comment.user.name, comment.user %></span>
+			<span class="content"><%= comment.content %>
+			</span>
+		</li>
+		<br>
+		<% end %>
+	</span>
+		<br>
+		<div class="row">
+			<div class = "col-md-4">
+		<% @comment = Comment.new %>	
+		<%= form_for(@comment) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+		<div class="field">
+			<%= f.text_area :content, placeholder: "Comment something!" %>
+			<%= f.hidden_field :test_id, :value => post.id %>
+		</div>
+		<div class = "row">
+			<div class = "col-md-4">
+		<%= f.submit "Post", class: "btn btn-primary -sm" %>
+	</div>
+</div>
+		<% end %>
+	</div>
+	</div>
 	</span>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(post.created_at) %> ago.

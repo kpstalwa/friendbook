@@ -9,6 +9,35 @@ $gray-medium-light: #eaeaea;
   font-size: 25px;
 
 }
+//comments
+.comments {
+  text-align: center;
+  height: 10px;
+  width: 20px;
+  list-style: none;
+  padding: 0;
+  .iterations{
+    background-color: $light-gray;
+  }
+  .comment {
+    list-style: none;
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    list-style: none;
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+}
 //Typography 
 
 h1 {

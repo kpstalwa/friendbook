@@ -21,7 +21,7 @@
 	<%end%>
 </ul>
 <hr>
-<h4>Likes</h4>
+<h4>Likes and Comments</h4>
 <ul class="users">
 	<% @posts = current_user.posts %>
 	<% @posts.each do |post| %>
@@ -38,3 +38,24 @@
 	<% end %>
 	<% end %>
 </ul>
+
+<hr>
+<ul class="users">
+	<% @posts = current_user.posts %>
+	<% @posts.each do |post| %>
+	<% @comments = post.comments %>
+	<% @comments.each do |comment| %>
+	<% if comment.user_id != current_user.id %>
+	<% user = User.find_by(id: comment.user_id) %>
+	<li>
+		<%= gravatar_for user, size: 50%>
+		<%= link_to "#{user.name} commented on your post", user %>
+	</li>
+	<% end %>
+
+	<% end %>
+	<% end %>
+</ul>
+
+
+

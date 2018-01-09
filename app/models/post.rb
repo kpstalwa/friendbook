@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
  validates :content, presence: true
  has_many :likes
+ has_many :comments
  mount_uploader :picture, PictureUploader
    validate  :picture_size
 

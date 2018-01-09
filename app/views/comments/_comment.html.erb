@@ -1,0 +1,6 @@
+	<div class = comment>
+		<%= link_to gravatar_for(post.user, size: 50), post.user %>
+		<span class="user"><%= link_to post.user.name, post.user %></span>
+		<span class="content"><%= comment.content %>
+		</span>
+	</div>
